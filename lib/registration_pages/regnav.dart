@@ -29,6 +29,8 @@ class _RegNavState extends State<RegNav> {
   late bool _obsecureText2 = true;
   late bool newuser;
   final _formKey = GlobalKey<FormState>();
+  String initialCountry = 'NG';
+  PhoneNumber number = PhoneNumber(isoCode: 'NG');
 
   @override
   void initState() {
@@ -77,7 +79,8 @@ class _RegNavState extends State<RegNav> {
                         contentPadding:
                             const EdgeInsets.fromLTRB(20, 15, 20, 15),
                         hintText: "Name",
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
+                          gapPadding: 4.0,
                           borderSide: const BorderSide(
                               color: Colors.purple, width: 2.0),
                           borderRadius: BorderRadius.circular(10),
@@ -96,7 +99,8 @@ class _RegNavState extends State<RegNav> {
                         if (value!.isEmpty) {
                           return ("Please Enter Your Email");
                         }
-                        if (!RegExp("^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+.[a-z]")
+                        if (!RegExp(
+                                r'^.+@[a-zA-Z]+\.{1}[a-zA-Z]+(\.{0,1}[a-zA-Z]+)$')
                             .hasMatch(value)) {
                           return ("Please Enter Your Valid Email");
                         }
@@ -114,7 +118,7 @@ class _RegNavState extends State<RegNav> {
                         contentPadding:
                             const EdgeInsets.fromLTRB(20, 15, 20, 15),
                         hintText: "Email",
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.purple, width: 2.0),
                           borderRadius: BorderRadius.circular(10),
@@ -128,14 +132,21 @@ class _RegNavState extends State<RegNav> {
                       child: Stack(
                         children: <Widget>[
                           InternationalPhoneNumberInput(
-                            onInputValidated: (value) {},
-                            onInputChanged: (value) {},
+                            onInputValidated: (bool value) {
+                              print(value);
+                            },
+                            onInputChanged: (PhoneNumber number) {
+                              print(number.phoneNumber);
+                            },
+                            selectorConfig: const SelectorConfig(
+                              selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
+                            ),
                             cursorColor: Colors.purple[600],
                             inputDecoration: InputDecoration(
                               contentPadding:
                                   const EdgeInsets.fromLTRB(20, 15, 20, 15),
                               hintText: "Phone number",
-                              focusedBorder: OutlineInputBorder(
+                              border: OutlineInputBorder(
                                 borderSide: const BorderSide(
                                     color: Colors.purple, width: 2.0),
                                 borderRadius: BorderRadius.circular(10),
@@ -152,16 +163,16 @@ class _RegNavState extends State<RegNav> {
                       autofocus: false,
                       controller: addressController,
                       keyboardType: TextInputType.name,
-                      // validator: (value) {
-                      //   RegExp regex = RegExp(r'^.{3,}$');
-                      //   if (value!.isEmpty) {
-                      //     return ("Please Enter address");
-                      //   }
-                      //   if (!regex.hasMatch(value)) {
-                      //     return ("Please Enter Valid address upto 3 characters");
-                      //   }
-                      //   return null;
-                      // },
+                      validator: (value) {
+                        RegExp regex = RegExp(r'^.{3,}$');
+                        if (value!.isEmpty) {
+                          return ("Please Enter address");
+                        }
+                        if (!regex.hasMatch(value)) {
+                          return ("Please Enter Valid address upto 3 characters");
+                        }
+                        return null;
+                      },
                       onSaved: (value) {
                         addressController.text = value!;
                       },
@@ -174,7 +185,7 @@ class _RegNavState extends State<RegNav> {
                         contentPadding:
                             const EdgeInsets.fromLTRB(20, 15, 20, 15),
                         hintText: "Address",
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.purple, width: 2.0),
                           borderRadius: BorderRadius.circular(10),
@@ -220,7 +231,7 @@ class _RegNavState extends State<RegNav> {
                         contentPadding:
                             const EdgeInsets.fromLTRB(20, 15, 20, 15),
                         hintText: "Password",
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.purple, width: 2.0),
                           borderRadius: BorderRadius.circular(10),
@@ -235,13 +246,10 @@ class _RegNavState extends State<RegNav> {
                       autofocus: false,
                       controller: confirmpasswordController,
                       validator: (value) {
-                        setState(() {
-                          if (confirmpasswordController.text !=
-                              passwordController.text) {
-                            return;
-                          }
-                          return;
-                        });
+                        if (confirmpasswordController.text !=
+                            passwordController.text) {
+                          return " Please Enter the correct password";
+                        }
                         return null;
                       },
                       onSaved: (value) {
@@ -267,7 +275,7 @@ class _RegNavState extends State<RegNav> {
                             const EdgeInsets.fromLTRB(20, 15, 20, 15),
                         hintText: "Confirm Password",
                         fillColor: Colors.white,
-                        focusedBorder: OutlineInputBorder(
+                        border: OutlineInputBorder(
                           borderSide: const BorderSide(
                               color: Colors.purple, width: 2.0),
                           borderRadius: BorderRadius.circular(10),
