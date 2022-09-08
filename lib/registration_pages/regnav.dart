@@ -309,7 +309,7 @@ class _RegNavState extends State<RegNav> {
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.purple,
                           padding: const EdgeInsets.symmetric(
-                              horizontal: 30, vertical: 10),
+                              horizontal: 50, vertical: 5),
                           textStyle: const TextStyle(
                               color: Colors.white,
                               fontSize: 30,
