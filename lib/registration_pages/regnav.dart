@@ -296,6 +296,7 @@ class _RegNavState extends State<RegNav> {
                       onPressed: () async {
                         if (_formKey.currentState!.validate()) {
                           setState(() {
+                            String name = nameController.text;
                             String email = emailController.text;
                             String password = passwordController.text;
 
@@ -304,6 +305,7 @@ class _RegNavState extends State<RegNav> {
 
                               logindata.setBool('login', false);
                               logindata.setString('email', email);
+                              logindata.setString('name', name);
                               Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(

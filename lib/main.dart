@@ -1,4 +1,3 @@
-import 'package:application_project/pages/landingPage.dart';
 import 'package:application_project/pages/registration.dart';
 import 'package:flutter/material.dart';
 
@@ -16,7 +15,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const LandingPage(),
+      home: const RegistrationPage(),
     );
   }
 }
