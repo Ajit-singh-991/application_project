@@ -1,9 +1,9 @@
-// ignore_for_file: file_names
+// ignore_for_file: file_names, no_leading_underscores_for_local_identifiers, sized_box_for_whitespace, unnecessary_string_interpolations, avoid_unnecessary_containers
 
 import 'package:application_project/pages/bottomNavigation/aboutnav.dart';
 import 'package:application_project/pages/bottomNavigation/profilenav.dart';
 import 'package:application_project/pages/bottomNavigation/videosnav.dart';
-import 'package:application_project/pages/registration.dart';
+import 'package:application_project/registration_pages/registration.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -113,7 +113,7 @@ class _LandingPageState extends State<LandingPage>
                           children: [
                             Text(
                               '$finalName',
-                              style: TextStyle(
+                              style: const TextStyle(
                                   color: Colors.white,
                                   fontStyle: FontStyle.italic,
                                   fontSize: 25,
@@ -145,159 +145,153 @@ class _LandingPageState extends State<LandingPage>
                 ),
               ),
               const SizedBox(
-                height: 100,
+                height: 20,
               ),
               Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    side: const BorderSide(color: Colors.white),
-                  ),
-                  leading: const Icon(
-                    Icons.person,
-                    size: 40,
-                  ),
-                  iconColor: Colors.white,
-                  title: const Text(
-                    ' My Profile ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    side: const BorderSide(color: Colors.white),
-                  ),
-                  leading: const Icon(
-                    Icons.book,
-                    size: 40,
-                  ),
-                  iconColor: Colors.white,
-                  title: const Text(
-                    ' About Company ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    side: const BorderSide(color: Colors.white),
-                  ),
-                  leading: const Icon(
-                    Icons.workspace_premium,
-                    size: 40,
-                  ),
-                  iconColor: Colors.white,
-                  title: const Text(
-                    ' Go Premium ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    side: const BorderSide(color: Colors.white),
-                  ),
-                  leading: const Icon(
-                    Icons.video_label,
-                    size: 40,
-                  ),
-                  iconColor: Colors.white,
-                  title: const Text(
-                    ' Saved Videos ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 15,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  tileColor: Colors.purple,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    side: const BorderSide(color: Colors.white),
-                  ),
-                  leading: const Icon(
-                    Icons.edit,
-                    size: 40,
-                  ),
-                  iconColor: Colors.white,
-                  title: const Text(
-                    ' Edit Profile ',
-                    style: TextStyle(color: Colors.white),
-                  ),
-                  onTap: () {
-                    Navigator.pop(context);
-                  },
-                ),
-              ),
-              const SizedBox(
-                height: 400,
-              ),
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: ListTile(
-                  contentPadding: const EdgeInsets.symmetric(horizontal: 85),
-                  tileColor: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40),
-                    side: const BorderSide(color: Colors.orange),
-                  ),
-                  leading: const Icon(
-                    Icons.logout,
-                    size: 40,
-                  ),
-                  iconColor: Colors.purple,
-                  title: const Text(
-                    'LogOut',
-                    style: TextStyle(color: Colors.purple),
-                  ),
-                  onTap: () async {
-                    logindata.setBool('login', true);
-                    Navigator.pushAndRemoveUntil(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const RegistrationPage()),
-                        (route) => false);
-                  },
+                padding: const EdgeInsets.only(right: 70, left: 10),
+                child: Column(
+                  children: [
+                    ListTile(
+                      tileColor: Colors.purple,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                        side: const BorderSide(color: Colors.white),
+                      ),
+                      leading: const Icon(
+                        Icons.person,
+                        size: 40,
+                      ),
+                      iconColor: Colors.white,
+                      title: const Text(
+                        ' My Profile ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ListTile(
+                      tileColor: Colors.purple,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                        side: const BorderSide(color: Colors.white),
+                      ),
+                      leading: const Icon(
+                        Icons.book,
+                        size: 40,
+                      ),
+                      iconColor: Colors.white,
+                      title: const Text(
+                        ' About Company ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ListTile(
+                      tileColor: Colors.purple,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                        side: const BorderSide(color: Colors.white),
+                      ),
+                      leading: const Icon(
+                        Icons.workspace_premium,
+                        size: 40,
+                      ),
+                      iconColor: Colors.white,
+                      title: const Text(
+                        ' Go Premium ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ListTile(
+                      tileColor: Colors.purple,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                        side: const BorderSide(color: Colors.white),
+                      ),
+                      leading: const Icon(
+                        Icons.video_label,
+                        size: 40,
+                      ),
+                      iconColor: Colors.white,
+                      title: const Text(
+                        ' Saved Videos ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    ListTile(
+                      tileColor: Colors.purple,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(40),
+                        side: const BorderSide(color: Colors.white),
+                      ),
+                      leading: const Icon(
+                        Icons.edit,
+                        size: 40,
+                      ),
+                      iconColor: Colors.white,
+                      title: const Text(
+                        ' Edit Profile ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () {
+                        Navigator.pop(context);
+                      },
+                    ),
+                    const SizedBox(
+                      height: 100,
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: ListTile(
+                        contentPadding:
+                            const EdgeInsets.symmetric(horizontal: 85),
+                        tileColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(40),
+                          side: const BorderSide(color: Colors.orange),
+                        ),
+                        leading: const Icon(
+                          Icons.logout,
+                          size: 40,
+                        ),
+                        iconColor: Colors.purple,
+                        title: const Text(
+                          'LogOut',
+                          style: TextStyle(color: Colors.purple),
+                        ),
+                        onTap: () async {
+                          logindata.setBool('login', true);
+                          Navigator.pushAndRemoveUntil(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const RegistrationPage()),
+                              (route) => false);
+                        },
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],

@@ -23,7 +23,7 @@ class _AboutPageState extends State<AboutPage> {
           'Welcome',
           style: TextStyle(
             color: Color.fromARGB(255, 161, 6, 204),
-            fontSize: 45.0,
+            fontSize: 25.0,
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
           ),
@@ -36,7 +36,7 @@ class _AboutPageState extends State<AboutPage> {
           'To',
           style: TextStyle(
             color: Color.fromARGB(255, 198, 75, 232),
-            fontSize: 35.0,
+            fontSize: 15.0,
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
           ),
@@ -49,7 +49,7 @@ class _AboutPageState extends State<AboutPage> {
           'About Company',
           style: TextStyle(
             color: Color.fromARGB(123, 151, 49, 179),
-            fontSize: 90.0,
+            fontSize: 30.0,
             fontStyle: FontStyle.italic,
             fontWeight: FontWeight.bold,
           ),

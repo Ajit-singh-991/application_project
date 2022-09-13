@@ -38,6 +38,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   intl_phone_number_input: ^0.7.0+2
   shared_preferences: ^2.0.15
+  flutter_launcher_icons: ^0.10.0
 
 dev_dependencies:
   flutter_test:
@@ -54,6 +55,13 @@ dev_dependencies:
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter packages.
+flutter_icons:
+  android: true
+  ios: true
+  image_path: "assets/images/login_image.png"
+  adaptive_icon_background: "#ffffff"
+  adaptive_icon_foreground: "assets/images/login_image.dart"
+
 flutter:
 
   # The following line ensures that the Material Icons font is
