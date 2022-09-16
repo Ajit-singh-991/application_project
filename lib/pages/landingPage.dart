@@ -3,7 +3,8 @@
 import 'package:application_project/pages/bottomNavigation/aboutnav.dart';
 import 'package:application_project/pages/bottomNavigation/profilenav.dart';
 import 'package:application_project/pages/bottomNavigation/videosnav.dart';
-import 'package:application_project/registration_pages/registration.dart';
+import 'package:application_project/pages/drawer%20pages/drawerhome.dart';
+import 'package:application_project/widgets/appbar.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -66,240 +67,20 @@ class _LandingPageState extends State<LandingPage>
     ];
     return Scaffold(
       appBar: AppBar(
-        toolbarHeight: 50,
-        elevation: 30.0,
+        elevation: 30,
+        title: Center(child: const AppBarPage()),
+        backgroundColor: Colors.purple,
         iconTheme: const IconThemeData(
           color: Colors.white,
-          size: 40,
-        ),
-        scrolledUnderElevation: 30.0,
-        backgroundColor: Colors.purple,
-        title: const Center(
-          child: Text(
-            'Dashboard',
-            style: TextStyle(
-                color: Colors.white,
-                fontStyle: FontStyle.italic,
-                fontSize: 30.0),
-          ),
         ),
       ),
-      drawer: Drawer(
-        elevation: 30.0,
-        child: Material(
-          color: Colors.purple,
-          child: ListView(
-            padding: const EdgeInsets.symmetric(vertical: 16),
-            children: [
-              Container(
-                height: 150,
-                width: double.maxFinite,
-                child: Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Row(
-                    children: [
-                      const CircleAvatar(
-                        radius: 50,
-                        backgroundImage:
-                            AssetImage('assets/images/login_image.png'),
-                      ),
-                      const SizedBox(
-                        width: 10,
-                      ),
-                      Center(
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Text(
-                              '$finalName',
-                              style: const TextStyle(
-                                  color: Colors.white,
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: 25,
-                                  fontWeight: FontWeight.bold),
-                            ),
-                            const SizedBox(
-                              height: 5,
-                            ),
-                            Text(
-                              '$finalEmail',
-                              style: const TextStyle(
-                                color: Colors.white,
-                                fontStyle: FontStyle.italic,
-                                fontSize: 15,
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-              const Padding(
-                padding: EdgeInsets.symmetric(horizontal: 20),
-                child: Divider(
-                  thickness: 2.0,
-                  color: Colors.white54,
-                ),
-              ),
-              const SizedBox(
-                height: 20,
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 70, left: 10),
-                child: Column(
-                  children: [
-                    ListTile(
-                      tileColor: Colors.purple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                        side: const BorderSide(color: Colors.white),
-                      ),
-                      leading: const Icon(
-                        Icons.person,
-                        size: 40,
-                      ),
-                      iconColor: Colors.white,
-                      title: const Text(
-                        ' My Profile ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListTile(
-                      tileColor: Colors.purple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                        side: const BorderSide(color: Colors.white),
-                      ),
-                      leading: const Icon(
-                        Icons.book,
-                        size: 40,
-                      ),
-                      iconColor: Colors.white,
-                      title: const Text(
-                        ' About Company ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListTile(
-                      tileColor: Colors.purple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                        side: const BorderSide(color: Colors.white),
-                      ),
-                      leading: const Icon(
-                        Icons.workspace_premium,
-                        size: 40,
-                      ),
-                      iconColor: Colors.white,
-                      title: const Text(
-                        ' Go Premium ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListTile(
-                      tileColor: Colors.purple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                        side: const BorderSide(color: Colors.white),
-                      ),
-                      leading: const Icon(
-                        Icons.video_label,
-                        size: 40,
-                      ),
-                      iconColor: Colors.white,
-                      title: const Text(
-                        ' Saved Videos ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 10,
-                    ),
-                    ListTile(
-                      tileColor: Colors.purple,
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(40),
-                        side: const BorderSide(color: Colors.white),
-                      ),
-                      leading: const Icon(
-                        Icons.edit,
-                        size: 40,
-                      ),
-                      iconColor: Colors.white,
-                      title: const Text(
-                        ' Edit Profile ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                      onTap: () {
-                        Navigator.pop(context);
-                      },
-                    ),
-                    const SizedBox(
-                      height: 100,
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: ListTile(
-                        contentPadding:
-                            const EdgeInsets.symmetric(horizontal: 85),
-                        tileColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40),
-                          side: const BorderSide(color: Colors.orange),
-                        ),
-                        leading: const Icon(
-                          Icons.logout,
-                          size: 40,
-                        ),
-                        iconColor: Colors.purple,
-                        title: const Text(
-                          'LogOut',
-                          style: TextStyle(color: Colors.purple),
-                        ),
-                        onTap: () async {
-                          logindata.setBool('login', true);
-                          Navigator.pushAndRemoveUntil(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const RegistrationPage()),
-                              (route) => false);
-                        },
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
+      drawer: const Drawer(
+        child: DrawerHomePage(),
       ),
       body: Center(
         child: Container(
+          height: MediaQuery.of(context).size.height,
+          width: MediaQuery.of(context).size.width,
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             _bodyView.elementAt(_selectedIndex),
           ]),
