@@ -39,6 +39,7 @@ dependencies:
   intl_phone_number_input: ^0.7.0+2
   shared_preferences: ^2.0.15
   flutter_launcher_icons: ^0.10.0
+  image_picker: ^0.8.5+3
 
 dev_dependencies:
   flutter_test:

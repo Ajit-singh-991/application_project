@@ -43,6 +43,8 @@ class _SplashScreenState extends State<SplashScreen> {
             },
             child: Center(
               child: AnimatedContainer(
+                width: MediaQuery.of(context).size.width * 1.0,
+                height: MediaQuery.of(context).size.height * 1.0,
                 color: Colors.purple,
                 alignment: Alignment.center,
                 curve: Curves.easeOutExpo,
@@ -59,13 +61,13 @@ class _SplashScreenState extends State<SplashScreen> {
                             filterQuality: FilterQuality.high,
                           ),
                           const SizedBox(
-                            height: 15,
+                            height: 30,
                           ),
                           const Text(
                             'HAPPY CODING IN FLUTTER',
                             style: TextStyle(
                               color: Colors.white,
-                              fontSize: 30,
+                              fontSize: 15,
                               fontWeight: FontWeight.bold,
                               fontStyle: FontStyle.italic,
                             ),
