@@ -1,5 +1,6 @@
-// ignore_for_file: sized_box_for_whitespace
+// ignore_for_file: sized_box_for_whitespace, unnecessary_string_interpolations
 
+import 'package:application_project/Apis/userApi.dart';
 import 'package:application_project/pages/drawer%20pages/profileedit.dart';
 import 'package:application_project/registration_pages/registration.dart';
 import 'package:flutter/material.dart';
@@ -52,6 +53,8 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
                         children: [
                           Text(
                             '$finalName',
+                            maxLines: 3,
+                            overflow: TextOverflow.ellipsis,
                             style: const TextStyle(
                                 color: Colors.white,
                                 fontStyle: FontStyle.italic,
@@ -63,6 +66,8 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
                           ),
                           Text(
                             '$finalEmail',
+                            maxLines: 3,
+                            overflow: TextOverflow.fade,
                             style: const TextStyle(
                               color: Colors.white,
                               fontStyle: FontStyle.italic,
@@ -154,29 +159,33 @@ class _DrawerHomePageState extends State<DrawerHomePage> {
                     height: 10,
                   ),
                   ListTile(
-                    tileColor: Colors.purple,
-                    leading: const Icon(
-                      Icons.workspace_premium,
-                      size: 40,
-                    ),
-                    subtitle: const Text(
-                      ' Premium Membership',
-                      style: TextStyle(
-                        color: Colors.white,
-                        letterSpacing: 1,
-                        wordSpacing: 2,
-                        fontSize: 8,
+                      tileColor: Colors.purple,
+                      leading: const Icon(
+                        Icons.workspace_premium,
+                        size: 40,
                       ),
-                    ),
-                    iconColor: Colors.white,
-                    title: const Text(
-                      'Premium ',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    onTap: () {
-                      Navigator.pop(context);
-                    },
-                  ),
+                      subtitle: const Text(
+                        ' Premium Api',
+                        style: TextStyle(
+                          color: Colors.white,
+                          letterSpacing: 1,
+                          wordSpacing: 2,
+                          fontSize: 8,
+                        ),
+                      ),
+                      iconColor: Colors.white,
+                      title: const Text(
+                        'UserApi ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      onTap: () async {
+                        logindata.setBool('login', true);
+                        Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const UserApi()),
+                            (route) => false);
+                      }),
                   const SizedBox(
                     height: 10,
                   ),

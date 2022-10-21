@@ -19,7 +19,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
   String finalName = "";
   String finalEmail = "";
   String finalAddress = "";
-  var imagepicked;
+  
   File? image;
   final TextEditingController emailController = TextEditingController();
 
@@ -211,15 +211,15 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                   const SizedBox(
                     height: 15,
                   ),
-                  Container(
+                  SizedBox(
                     child: Stack(
                       children: <Widget>[
                         InternationalPhoneNumberInput(
                           onInputValidated: (bool value) {
-                            print(value);
+                            debugPrint("$value");
                           },
                           onInputChanged: (PhoneNumber number) {
-                            print(number.phoneNumber);
+                            debugPrint("${number.phoneNumber}");
                           },
                           selectorConfig: const SelectorConfig(
                             selectorType: PhoneInputSelectorType.BOTTOM_SHEET,
@@ -286,7 +286,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
                           String address = addressController.text;
 
                           if (email != '') {
-                            print('Saved sucessfully');
+                            debugPrint('Saved sucessfully');
 
                             logindata.setBool('login', true);
                             logindata.setString('email', email);
@@ -384,7 +384,7 @@ class _ProfileEditPageState extends State<ProfileEditPage> {
       this.image = imageTemporary;
       setState(() => this.image = imageTemporary);
     } on PlatformException catch (e) {
-      print('failed to load image:$e');
+      debugPrint('failed to load image:$e');
     }
   }
 

@@ -68,7 +68,7 @@ class _LandingPageState extends State<LandingPage>
     return Scaffold(
       appBar: AppBar(
         elevation: 30,
-        title: Center(child: const AppBarPage()),
+        title: const Center(child: AppBarPage()),
         backgroundColor: Colors.purple,
         iconTheme: const IconThemeData(
           color: Colors.white,
