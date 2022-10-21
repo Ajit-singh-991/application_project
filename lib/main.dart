@@ -1,4 +1,6 @@
-import 'package:application_project/pages/registration.dart';
+import 'package:application_project/pages/SplashScreen/splash.dart';
+import 'package:application_project/pages/landingPage.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -14,8 +16,9 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.grey,
+        visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: const RegistrationPage(),
+      home: const LandingPage(),
     );
   }
 }

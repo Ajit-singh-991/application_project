@@ -299,6 +299,7 @@ class _RegNavState extends State<RegNav> {
                             String name = nameController.text;
                             String email = emailController.text;
                             String password = passwordController.text;
+                            String address = addressController.text;
 
                             if (email != '' && password != '') {
                               print('login sucessful');
@@ -306,6 +307,8 @@ class _RegNavState extends State<RegNav> {
                               logindata.setBool('login', false);
                               logindata.setString('email', email);
                               logindata.setString('name', name);
+                              logindata.setString('address', address);
+
                               Navigator.pushAndRemoveUntil(
                                   context,
                                   MaterialPageRoute(
